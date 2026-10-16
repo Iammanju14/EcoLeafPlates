@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+
+
+<div class="row">
+ 
+    <div class="col-lg-4">
+        <span class="btn-block">
+            <a href="@Url.Action("DisplayUserDetails", "User")" class="btn-info btn-block btn-lg text-center"
+               style="border-radius:0px;"><span style="font-size:25px">UserList</span></a>
+        </span>
+    </div>
+
+    <div class="col-lg-4">
+        <span class="btn-block">
+            <a href="@Url.Action("ContactList", "Admin")" class="btn-info btn-block btn-lg text-center"
+               style="border-radius:0px;"><span style="font-size:25px">Contacts</span></a>
+        </span>
+    </div>
+    <div class="col-lg-4">
+        <span class="btn-block">
+            <a href="@Url.Action("DisplayPlacedOrderDetails", "Cart")" class="btn-info btn-block btn-lg text-center"
+               style="border-radius:0px;"><span style="font-size:25px">Order List</span></a>
+        </span>
+    </div>
+    @*<div class="col-lg-2">
+
+        <input type="radio" value="UserRpt" name="ReportType" checked="checked" /> <text style="font-size:15px;font-weight:bold">User Report</text><br />
+        <input type="radio" value="ContactRpt" name="ReportType" /> <text style="font-size:15px;font-weight:bold">Contact Report</text><br />
+        <input type="radio" value="MsgRpt" name="ReportType" /> <text style="font-size:15px;font-weight:bold">Order Report</text><br />
+
+        <input type="button" class="btn-block btn-info btn-block btn-lg text-center"
+               style="border-radius:0px;font-size:20px" value="Reports" onclick="return GenerateReport()" />
+    </div>*@
+
+</div>
+<br />
+
+<script>
+    function GenerateReport() {
+
+
+
+            var rptType = $("input[name='ReportType']:checked").val();
+            var emps = JSON.stringify({ 'rptType': rptType });
+
+
+            $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'POST',
+                url: '/Admin/Reports',
+                data: emps
+            });
+
+
+
+
+ }
+
+</script>
+

@@ -1,0 +1,99 @@
+﻿@model IEnumerable<EcoLeafPlates.Models.clsCartDetailsToDisplay>
+
+@{
+    ViewBag.Title = "getCartDetails";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-lg-8">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.price)
+                </th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+
+                        @*<input type="button" class="btn btn-primary bg-dark rounded-0" value="Edit" onclick="location.href='@Url.Action("EditCartDetails", "Cart", new { cartId = item.cartId })'" />
+                            <i class="fa fa-trash" aria-hidden="true"></i>*@
+                        <button class="btn btn-primary bg-dark rounded-0" type="reset" onclick="location.href='@Url.Action("EditCartDetails", "Cart", new { cartId = item.cartId })'">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </button>
+
+                        <a class="btn btn-primary bg-dark rounded-0" 
+                           href='@Url.Action("DeleteCartDetails", "Cart",
+new { cartId = @item.cartId })' onclick="return  confirm('Are you sure you want to delete @item.ProductName record') ">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+            <tr>
+                <td colspan="4" style="text-align:right;font-size:30px">
+                    Total: @ViewBag.Total
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="col-lg-4">
+        <table class="table">
+            <tr>
+                <th>Delivery Address</th>
+            </tr>
+            <tr>
+                <td id ="address">
+
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+
+        <input type="button" class="btn-primary  removeRad btn-block btnFont" value="CONTINUE SHOPPING" onclick="location.href='@Url.Action("Products","Eco")'" />
+
+    </div>
+    <div class="col-lg-6">
+        <input type="button" class="btn-primary removeRad btn-block btnFont" value="PLACE AN ORDER" onclick="location.href='@Url.Action("PlaceAnOrder", "Cart")'" />
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    debugger;
+    $(document).ready(function () {
+        var address = @Html.Raw(Json.Encode(ViewBag.Address));
+        $("#address").html(address);
+    });
+
+
+</script>

@@ -1,0 +1,127 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+<div class="row" >
+    <div class="col-lg-12">
+        <div id="idpoemgallery" class="carousel slide" data-ride="carousel" data-interval="5000">
+            <ol class="carousel-indicators">
+                <li data-target="#idpoemgallery" data-slide-to="0" class="active"></li>
+                <li data-target="#idpoemgallery" data-slide-to="1"></li>
+                <li data-target="#idpoemgallery" data-slide-to="2"></li>
+                <li data-target="#idpoemgallery" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+
+                    <img src="~/Content/Images/HomeCarousel/1.jpg" class="img-responsive" />
+                </div>
+
+                <div class="item">
+                    <img src="~/Content/Images/HomeCarousel/2.jpg" class="img-responsive" />
+                </div>
+
+                <div class="item">
+                    <img src="~/Content/Images/HomeCarousel/4.jpg" class="img-responsive" />
+                </div>
+                <div class="item">
+
+                    <img src="~/Content/Images/HomeCarousel/5.jpg" class="img-responsive" />
+                </div>
+             
+
+            </div>
+            <a href="#idpoemgallery" class="carousel-control left" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a href="#idpoemgallery" class="carousel-control right" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<div style="background-color:white;padding-left:25px;padding-right:5px;">
+
+    <br />
+    <br />
+    <span style="font-size:25px;text-align:center;font-family:'Times New Roman'; display:block"> OUR PRODUCTS</span>
+    <br />
+    <br />
+
+    <div class="row">
+        <div class="col-lg-4 col-md-3 col-sm-6">
+          
+            <img src="~/Content/Images/Gallery/Home/MDS_3296.jpg" class="img-responsive" style="padding:35px" />
+
+            <p style="text-align:center;font-size:18px; color:green">
+                @*<br />*@
+                ROUND PLATES<br />
+                @*<span style="color:gray">Round Plates and Tray</span><br /><br />*@
+                <button class="btn-default" type="button" onclick="location.href='@Url.Action("Products", "Eco")#pnlRoundPlates'">VIEW MORE</button>
+
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-3 col-sm-6">
+   
+            <img src="~/Content/Images/Gallery/Home/MDS_3278.jpg" class="img-responsive" style="padding:35px" />
+            <p style="text-align:center;font-size:18px; color:green">
+                @*<br />*@
+                ROUND BOWLS<br />
+                @*<span style="color:gray">Round Bowls and Tray</span><br /><br />*@
+                <button class="btn-default" type="button" onclick="location.href='@Url.Action("Products", "Eco")#pnlRoundBowls'">VIEW MORE</button>
+           
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-3 col-sm-6">
+           
+            <img src="~/Content/Images/Gallery/Home/MDS_3310.jpg" class="img-responsive" style="padding:35px" />
+            <p style="text-align:center;font-size:18px; color:green">
+                @*<br />*@
+                SQUARE PLATES AND BOWLS<br />
+                @*<span style="color:gray">Sqaure Plates and Tray</span><br /><br />*@
+                <button class="btn-default" type="button" onclick="location.href='@Url.Action("Products", "Eco")#pnlSquarePlates'">VIEW MORE</button>
+             
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-3 col-sm-6">
+     
+            <img src="~/Content/Images/Gallery/Home/MDS_3325.jpg" class="img-responsive" style="padding:35px" />
+            <p style="text-align:center;font-size:18px; color:green">
+                @*<br />*@
+                OVAL PLATES AND BOWLS<br />
+                @*<span style="color:gray">Oval Plates and Tray</span><br /><br />*@
+                <button class="btn-default" type="button" onclick="location.href='@Url.Action("Products", "Eco")#pnlOvalPlate'">VIEW MORE</button>
+                
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-3 col-sm-6">
+            <img src="~/Content/Images/Gallery/Home/MDS_3353.jpg" class="img-responsive" style="padding:35px" />
+           
+            <p style="text-align:center;font-size:18px; color:green">
+                @*<br />*@
+                SPECIAL PLATES AND SPOONS<br />
+                @*<span style="color:gray">Spoons and Special Paltes</span><br /><br />*@
+                <button class="btn-default" type="button" onclick="location.href='@Url.Action("Products","Eco")#pnlSpecialPlate'">VIEW MORE</button>
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-3 col-sm-6">
+           
+            <img src="~/Content/Images/Gallery/Products/RECBOWL1.JPG" class="img-responsive" style="padding:35px" />
+
+            <p style="text-align:center;font-size:18px; color:green">
+                @*<br />*@
+                RECTANGLE PLATES AND SPOONS<br />
+                @*<span style="color:gray">Spoons and Special Paltes</span><br /><br />*@
+                <button class="btn-default" type="button" onclick="location.href='@Url.Action("Products","Eco")#pnlRectanglePlates'">VIEW MORE</button>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+

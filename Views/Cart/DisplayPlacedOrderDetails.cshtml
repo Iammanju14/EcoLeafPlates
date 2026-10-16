@@ -1,0 +1,73 @@
+﻿@model IEnumerable<EcoLeafPlates.Models.clsOrderDetails>
+
+@{
+    ViewBag.Title = "DisplayPlacedOrderDetails";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.orderDetailId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderItem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderStatus)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.orderDetailId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.orderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.orderItem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.orderQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.orderStatus)
+            </td>
+
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                    <input type="button" class="btn btn-primary bg-dark removeRad" value="Edit" onclick="location.href='@Url.Action("EditPlacedOrderDetails", new { orderDetailId = item.orderDetailId })'" />
+
+                </td>
+                <td>
+                    @*<a class="btn btn-primary bg-dark removeRad"
+                           href='@Url.Action("DeleteUserDetails", "User",
+                            new { UserId = @item.userId })' onclick="return  confirm('Are you sure you want to delete @item.name record') ">
+                            Delete
+                        </a>*@
+
+
+                </td>
+            }
+        </tr>
+    }
+
+</table>

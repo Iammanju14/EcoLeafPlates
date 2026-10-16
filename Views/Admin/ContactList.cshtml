@@ -1,0 +1,69 @@
+﻿@model IEnumerable<EcoLeafPlates.Models.Contact>
+
+@{
+    ViewBag.Title = "ContactList";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ConId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Query)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Viwed)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Query)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Viwed)
+        </td>
+
+        <td>
+            <input type="button" class="btn btn-primary bg-dark removeRad" value="Edit" onclick="location.href='@Url.Action("EditContact", new { ConId = item.ConId })'" />
+
+        </td>
+        <td>
+            <a class="btn btn-primary bg-dark removeRad"
+               href='@Url.Action("DeleteContact", "Admin",
+new { ConId = @item.ConId })' onclick="return  confirm('Are you sure you want to delete @item.Name record') ">
+                Delete
+            </a>
+
+
+        </td>
+    </tr>
+}
+
+</table>
